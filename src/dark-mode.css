@@ -1,0 +1,11 @@
+/* dark-mode.css */
+
+@media (prefers-color-scheme: dark) {
+    /* Add your dark mode styles here */
+    /* For example: */
+    body {
+      background-color: #111827;
+      color: #ffffff;
+    }
+  }
+  

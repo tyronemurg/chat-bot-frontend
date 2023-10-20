@@ -1,0 +1,17 @@
+<div [class]="isDarkModeActive ? 'bg-gray-900 text-white' : 'bg-white text-black'">
+     <!-- <button (click)="toggleDarkMode()">Toggle Dark Mode</button>  -->
+
+    <div class="max-w-lg mx-auto  bg-dark-100 rounded-lg shadow-lg p-4 mb-4">
+        <div *ngFor="let message of messages" class="mb-2">
+            <div class="font-bold p-4" style="background: #000;border:0px solid #000;">{{ message.sender }}:</div>
+            <div class="px-4 py-1 border rounded" style="background: #000;border:0px solid #000;" [innerHTML]="formatCode(message.content)"></div>
+        </div>
+        <div *ngIf="isBotTyping" class="italic text-gray-500 mx-auto"><img style="width: 30px;" src="https://media.giphy.com/media/9V8Ycr1VN3GaTHCXhP/giphy.gif" alt="typing..."/></div>
+    </div>
+    <div class="max-w-lg mx-auto bg-gray-900 rounded-lg shadow-lg p-4" style="background: #25355b;">
+        <div class="flex items-center bg-dark">
+            <input [(ngModel)]="newMessage" style="background: #25355b;border: 0px;" class="border bg-dark px-2 py-1 w-3/4" placeholder="Type a message..." (keyup.enter)="onEnterKey($event)"/>
+            <button (click)="sendMessage()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded ml-2" type="submit">Send</button>
+        </div>
+    </div>
+</div>

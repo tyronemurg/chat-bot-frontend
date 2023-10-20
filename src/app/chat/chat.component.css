@@ -1,0 +1,62 @@
+/* Add these styles to your existing CSS file */
+
+.bot-message {
+    background-color: #eff6ff; /* Light blue background for bot messages */
+  }
+  
+  .bot-message:before {
+    content: "AI:"; /* Add AI label before bot messages */
+    color: #4a90e2;
+    font-weight: bold;
+    margin-right: 4px;
+  }
+  
+  .user-message:before {
+    content: "User:"; /* Add User label before user messages */
+    color: #000;
+    font-weight: bold;
+    margin-right: 4px;
+  }
+
+  /* Add these styles to your existing CSS file */
+
+pre {
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+  }
+
+  /* Add these styles to your existing CSS file */
+
+.code {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  background-color: #f8f8f8;
+  padding: 8px;
+  margin: 0;
+  border-radius: 4px;
+  margin-bottom: 1em;
+}
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Set container height to fill the viewport */
+}
+
+.chat-messages {
+  flex-grow: 1; /* Allow chat messages to grow and take available space */
+  overflow-y: auto; /* Add scrollbar if content overflows */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff; /* Optional: Set background color for input container */
+  padding: 8px; /* Optional: Add padding for better spacing */
+}
+
+  
+  
