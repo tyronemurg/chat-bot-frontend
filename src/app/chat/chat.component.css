@@ -58,5 +58,22 @@ pre {
   padding: 8px; /* Optional: Add padding for better spacing */
 }
 
+/* chat.component.css */
+.container {
+  display: flex;
+}
+
+.side-panel {
+  width: 200px;
+  background-color: #161616;
+  padding: 10px;
+}
+
+.main-chat-area {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+
   
   
