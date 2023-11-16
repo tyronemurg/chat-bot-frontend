@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounce } from 'lodash';
+import { ChatService } from '../services/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -8,6 +9,7 @@ import { debounce } from 'lodash';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  recentChats: any[] = [];
   isDarkModeActive: boolean = true;
 
   toggleDarkMode() {
@@ -16,10 +18,19 @@ export class ChatComponent implements OnInit {
 
   messages: { content: string, sender: string }[] = [];
   newMessage: string = '';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private chatService: ChatService) {}
 
   ngOnInit(): void {
+
+    this.loadRecentChats();
   }
+
+  loadRecentChats(): void {
+    this.chatService.getRecentChats().subscribe((chats) => {
+      this.recentChats = chats;
+    });
+  }
+
 
   isBotTyping: boolean = false; 
 
