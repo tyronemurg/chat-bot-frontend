@@ -2,10 +2,12 @@
 <div class="container">
     <!-- Recent Chats Side Panel -->
     <div class="side-panel">
-      <h3>Recent Chats</h3>
+      <h1>Recent Chats</h1>
+      <hr>
       <ul>
         <li *ngFor="let chat of recentChats">
           {{ chat.content }}
+          <hr>
         </li>
       </ul>
     </div>
