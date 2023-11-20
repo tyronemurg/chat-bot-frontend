@@ -28,6 +28,7 @@ export class ChatComponent implements OnInit {
   loadRecentChats(): void {
     this.chatService.getRecentChats().subscribe((chats) => {
       this.recentChats = chats;
+      console.log(this.recentChats)
     });
   }
 
