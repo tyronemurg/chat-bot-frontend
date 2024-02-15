@@ -10,6 +10,7 @@ import { ChatService } from '../services/chat.service';
 })
 export class ChatComponent implements OnInit {
   recentChats: any[] = [];
+  selectedChat: any = null;
   isDarkModeActive: boolean = true;
 
   toggleDarkMode() {
@@ -31,6 +32,29 @@ export class ChatComponent implements OnInit {
       console.log(this.recentChats)
     });
   }
+
+  loadConversation(chat: any): void {
+    if (!chat || !chat._id) {
+      console.error('Invalid chat data:', chat);
+      return;
+    }
+  
+    this.selectedChat = chat;
+    this.chatService.getConversation(chat._id).subscribe(
+      (conversation) => {
+        if (conversation && conversation.messages) {
+          this.messages = conversation.messages;
+        } else {
+          console.error('Invalid conversation data:', conversation);
+        }
+      },
+      (error) => {
+        console.error('Error loading conversation:', error);
+      }
+    );
+  }
+  
+  
 
 
   isBotTyping: boolean = false; 

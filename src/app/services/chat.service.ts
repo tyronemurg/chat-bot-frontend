@@ -13,4 +13,7 @@ export class ChatService {
   getRecentChats(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+  getConversation(conversationId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/conversation/${conversationId}`);
+  }
 }

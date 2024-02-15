@@ -4,7 +4,7 @@
       <h1>Recent Chats</h1>
       <hr>
       <ul>
-        <li *ngFor="let chat of recentChats">
+        <li *ngFor="let chat of recentChats" (click)="loadConversation(chat)">
           {{ chat.content }}
           <hr>
         </li>
@@ -21,6 +21,13 @@
                    <div class="font-bold p-4" style="background: #000;border:0px solid #000;">{{ message.sender }}:</div>
                    <div class="px-4 py-1 border rounded" style="background: #000;border:0px solid #000;" [innerHTML]="formatCode(message.content)"></div>
                </div>
+               <!-- Display the selected chat conversation -->
+        <div *ngIf="selectedChat">
+          <div *ngFor="let message of selectedChat.messages" class="mb-2">
+            <div class="font-bold p-4" style="background: #000;border:0px solid #000;">{{ message.sender }}:</div>
+            <div class="px-4 py-1 border rounded" style="background: #000;border:0px solid #000;" [innerHTML]="formatCode(message.content)"></div>
+          </div>
+        </div>
                <div *ngIf="isBotTyping" class="italic text-gray-500 mx-auto"><img style="width: 30px;" src="https://media4.giphy.com/media/Ky5F5Rhn1WRVZmvE5W/giphy.gif?cid=ecf05e47m3nclmep75yihhvgua88i9zpncjep59blfr84xv7&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="typing..."/></div>
            </div>
            <div class="max-w-lg mx-auto bg-gray-900 rounded-lg shadow-lg p-4" style="background: #25355b;">
